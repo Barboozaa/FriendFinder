@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Barboozaa/FriendFinder/issues"
   },
-  "homepage": "https://github.com/Barboozaa/FriendFinder#readme"
+  "homepage": "https://github.com/Barboozaa/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
