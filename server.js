@@ -1,10 +1,21 @@
 var express = require("express");
-
-var port = 3500;
+var bodyParser = require('body-parser');
+var path = require('path');
 
 var app = express();
 
-app.use(express.static(__dirname + "/public"));
+var port = process.env.PORT || 3500;
 
 require("./app/routing/apiRoutes.html")(app);
 require("./app/routing/htmlRoutes.html")(app);
+
+app.use(express.static(__dirname + "/public"));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+
+app.listen(PORT, function () {
+  console.log('App listening on PORT: ' + PORT);
+});
